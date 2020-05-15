@@ -1,2 +1,3 @@
-# coturn-redis-mysql-proxy
-This acts as a coturn proxy in two ways: coturn-redis-userdb endpoint and coturn-redis-statsdb
+# coturn-stats-receiver
+
+This acts as a Redis server in order to monitor Coturn bandwidth usage.
