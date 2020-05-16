@@ -221,7 +221,6 @@ func logInitx(f io.WriteCloser) *zap.SugaredLogger {
 }
 
 func main() {
-
 	// lumberjack.Logger is already safe for concurrent use, so we don't need to
 	// lock it.
 	lj := &lumberjack.Logger{
