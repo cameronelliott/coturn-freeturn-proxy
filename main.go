@@ -232,6 +232,8 @@ func main() {
 
 	l = logInit(lj)
 
+	go l.Infof("foofoo1")
+
 	items = make(map[string][]byte)
 
 	//open and ping
