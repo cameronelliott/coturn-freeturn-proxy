@@ -225,7 +225,7 @@ func main() {
 	// lumberjack.Logger is already safe for concurrent use, so we don't need to
 	// lock it.
 	lj := &lumberjack.Logger{
-		Filename:   "/var/log/freeturn/coturn-redis-mysql-proxy.log",
+		Filename:   "/var/log/freeturn/coturn-stats-receiver.log",
 		MaxSize:    100, // megabytes
 		MaxBackups: 100, // maximum number of files
 		MaxAge:     365, // days
