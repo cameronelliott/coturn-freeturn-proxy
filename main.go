@@ -232,7 +232,7 @@ func main() {
 
 	l = logInit(lj)
 
-	go l.Infof("foofoo1")
+	go l.Infof("foofoo2")
 
 	items = make(map[string][]byte)
 
