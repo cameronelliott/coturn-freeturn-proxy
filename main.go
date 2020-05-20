@@ -233,7 +233,7 @@ func main() {
 
 		
     
-    err = ioutil.WriteFile("/tmp/foo", []byte("foo11"), 0644)
+    err = ioutil.WriteFile("/tmp/foo", []byte("foo12"), 0644)
 	check(err)
 	
 	lj := &lumberjack.Logger{
