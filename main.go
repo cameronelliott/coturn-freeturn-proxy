@@ -4,7 +4,7 @@ import (
 	"crypto/md5"
 	"fmt"
 	"io"
-	//"log"
+	"io/ioutil"
 	//	"log"
 	"os"
 	"strings"
@@ -41,6 +41,12 @@ var l *zap.SugaredLogger
 
 // "publish" "turn/realm/xrealm/user/user/allocation/000000000000000004/traffic" "rcvp=3, rcvb=284, sentp=3, sentb=320"
 // "publish" "turn/realm/xrealm/user/user/allocation/000000000000000004/total_traffic
+
+func check(e error) {
+    if e != nil {
+        panic(e)
+    }
+}
 
 func handleTrafficReport(report string, totalTraffic bool, ispeer bool, session uint64) {
 
@@ -223,6 +229,13 @@ func logInitx(f io.WriteCloser) *zap.SugaredLogger {
 func main() {
 	// lumberjack.Logger is already safe for concurrent use, so we don't need to
 	// lock it.
+	var err error
+
+		
+    
+    err = ioutil.WriteFile("/tmp/foo", []byte("foo1"), 0644)
+	check(err)
+	
 	lj := &lumberjack.Logger{
 		Filename:   "/var/log/freeturn/coturn-stats-monitor.log",
 		MaxSize:    100, // megabytes
@@ -241,7 +254,7 @@ func main() {
 	go l.Infof("mysql open okay")
 
 	go l.Infof("started server at %s", addr)
-	err := redcon.ListenAndServe(addr,
+	err = redcon.ListenAndServe(addr,
 		func(conn redcon.Conn, cmd redcon.Command) {
 
 			//cmd0 := strings.ToLower(string(cmd.Args[0]))
