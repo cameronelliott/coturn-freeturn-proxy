@@ -232,8 +232,8 @@ func main() {
 	var err error
 
 		
-    
-    err = ioutil.WriteFile("/tmp/foo", []byte("foo14"), 0644)
+    //XXX testing
+    err = ioutil.WriteFile("/tmp/foof", []byte("foo15"), 0644)
 	check(err)
 	
 	lj := &lumberjack.Logger{
@@ -245,7 +245,7 @@ func main() {
 
 	l = logInit(lj)
 
-	go l.Infof("foofoo4")
+
 
 	items = make(map[string][]byte)
 
